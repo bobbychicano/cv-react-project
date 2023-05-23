@@ -17,10 +17,13 @@ class App extends Component {
 
   handleChange = (e) => {
     const { id, value } = e.target;
-    this.setState({ [id]: [value] });
+    this.setState((prevData) => ({
+      introduction: {
+        ...prevData,
+        [id]: value,
+      },
+    }));
   };
-
-  // Target using the id or something?
 
   render() {
     return (

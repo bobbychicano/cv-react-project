@@ -7,14 +7,14 @@ class Introduction extends Component {
         <label for="fullName">Name: </label>
         <input
           type="text"
-          value={this.props.fullName}
+          value={this.props.value.fullName}
           id="fullName"
           onChange={this.props.onChange}
         ></input>
         <label for="emailAddress">Email Address: </label>
         <input
           type="email"
-          value={this.props.emailAddress}
+          value={this.props.value.emailAddress}
           id="emailAddress"
           onChange={this.props.onChange}
         ></input>
@@ -23,7 +23,7 @@ class Introduction extends Component {
           type="tel"
           pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
           maxlength="10"
-          value={this.props.phoneNumber}
+          value={this.props.value.phoneNumber}
           id="phoneNumber"
           onChange={this.props.onChange}
         ></input>
