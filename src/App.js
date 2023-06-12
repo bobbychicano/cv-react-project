@@ -1,8 +1,8 @@
 import "./App.css";
 import React, { Component, useState } from "react";
 import Introduction from "./Components/Introduction.js";
-import Education from "./Components/Introduction.js";
-import Experience from "./Components/Introduction.js";
+import Education from "./Components/Education.js";
+import Experience from "./Components/Experience.js";
 
 class App extends Component {
   constructor() {
@@ -10,7 +10,7 @@ class App extends Component {
 
     this.state = {
       introduction: { fullName: "", emailAddress: "", phoneNumber: "" },
-      education: { university: "", courses: "" },
+      education: { school: "", degree: "", years: "" },
       experience: { employer: "" },
     };
   }
@@ -32,17 +32,11 @@ class App extends Component {
           value={this.state.introduction}
           onChange={this.handleChange}
         />
-        {/* <Education />
-        <Experience /> */}
+        <Education value={this.state.education} onChange={this.handleChange} />
+        {/* <Experience /> */}
       </div>
     );
   }
 }
-
-// Store all of the input information from my three main components in state. Then have a component that renders all that information.
-
-// So state will be a really big object that holds all the values for all the input fields.
-
-// Can you just pass an object as a prop, because that should simplify things right?
 
 export default App;
