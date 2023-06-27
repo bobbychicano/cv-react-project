@@ -9,6 +9,7 @@ class App extends Component {
     super();
 
     this.state = {
+      showResume: false,
       introduction: { fullName: "", emailAddress: "", phoneNumber: "" },
       education: { school: "", degree: "", years: "" },
       experience: { employer: "" },
@@ -25,6 +26,17 @@ class App extends Component {
     }));
   };
 
+  handleSave = (e) => {
+    e.preventDefault();
+    // this will render the data that has been inputted on screen into a clean UI and clear out the input fields
+    this.setState({
+      showResume: true,
+      introduction: { fullName: "", emailAddress: "", phoneNumber: "" },
+      education: { school: "", degree: "", years: "" },
+      experience: { employer: "" },
+    });
+  };
+
   render() {
     return (
       <div>
@@ -34,6 +46,13 @@ class App extends Component {
         />
         <Education value={this.state.education} onChange={this.handleChange} />
         {/* <Experience /> */}
+        <button type="button" name="save-button" onClick={this.handleSave}>
+          Save
+        </button>
+        {/* A component that holds all the JSX to display the "saved" data as HTML */}
+        {/* if(this.state.showResume) {
+           <div>This element is rendered when the save button is clicked.</div>;
+        } */}
       </div>
     );
   }
