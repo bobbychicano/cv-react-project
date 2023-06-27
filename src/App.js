@@ -1,5 +1,5 @@
 import "./App.css";
-import React, { Component, useState } from "react";
+import React, { Component } from "react";
 import Introduction from "./Components/Introduction.js";
 import Education from "./Components/Education.js";
 import Experience from "./Components/Experience.js";
@@ -37,6 +37,8 @@ class App extends Component {
       },
     }));
   };
+
+  // Figure out how to change state of the different components with only one handleChange function
 
   handleSave = (e) => {
     e.preventDefault();
