@@ -10,11 +10,23 @@ class App extends Component {
 
     this.state = {
       showResume: false,
-      introduction: { fullName: "", emailAddress: "", phoneNumber: "" },
-      education: { school: "", degree: "", years: "" },
-      experience: { employer: "" },
+      introduction: {
+        fullName: "",
+        emailAddress: "",
+        phoneNumber: "",
+      },
+      education: {
+        school: "",
+        degree: "",
+        years: "",
+      },
+      experience: {
+        employer: "",
+      },
     };
   }
+
+  // To use nested values, it helps to use destructuring in any of my class methods (including the render() menthod)
 
   handleChange = (e) => {
     const { id, value } = e.target;
@@ -41,11 +53,14 @@ class App extends Component {
     return (
       <div>
         <Introduction
-          value={this.state.introduction}
+          introValues={this.state.introduction}
           onChange={this.handleChange}
         />
-        <Education value={this.state.education} onChange={this.handleChange} />
-        {/* <Experience /> */}
+        <Education
+          educationValues={this.state.education}
+          onChange={this.handleChange}
+        />
+        <Experience />
         <button type="button" name="save-button" onClick={this.handleSave}>
           Save
         </button>
