@@ -8,14 +8,16 @@ class Introduction extends Component {
         <input
           type="text"
           value={this.props.introValues.fullName}
-          id="fullName"
+          id="introduction"
+          name="fullName"
           onChange={this.props.onChange}
         ></input>
         <label for="emailAddress">Email Address: </label>
         <input
           type="email"
           value={this.props.introValues.emailAddress}
-          id="emailAddress"
+          id="introduction"
+          name="emailAddress"
           onChange={this.props.onChange}
         ></input>
         <label for="phoneNumber">Phone Number: </label>
@@ -24,7 +26,8 @@ class Introduction extends Component {
           pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
           maxlength="10"
           value={this.props.introValues.phoneNumber}
-          id="phoneNumber"
+          id="introduction"
+          name="phoneNumber"
           onChange={this.props.onChange}
         ></input>
       </div>

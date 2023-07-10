@@ -8,21 +8,24 @@ class Education extends Component {
         <input
           type="text"
           value={this.props.educationValues.school}
-          id="school"
+          id="education"
+          name="school"
           onChange={this.props.onChange}
         ></input>
         <label for="degree">Degree: </label>
         <input
           type="text"
           value={this.props.educationValues.degree}
-          id="degree"
+          id="education"
+          name="degree"
           onChange={this.props.onChange}
         ></input>
         <label for="years">Years Attended: </label>
         <input
           type="text"
           value={this.props.educationValues.years}
-          id="years"
+          id="education"
+          name="years"
           onChange={this.props.onChange}
         ></input>
       </div>

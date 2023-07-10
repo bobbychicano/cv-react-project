@@ -29,16 +29,15 @@ class App extends Component {
   // To use nested values, it helps to use destructuring in any of my class methods (including the render() menthod)
 
   handleChange = (e) => {
-    const { id, value } = e.target;
+    const { name, id, value } = e.target;
+
     this.setState((prevData) => ({
-      introduction: {
+      [id]: {
         ...prevData,
-        [id]: value,
+        [name]: value,
       },
     }));
   };
-
-  // Figure out how to change state of the different components with only one handleChange function
 
   handleSave = (e) => {
     e.preventDefault();
