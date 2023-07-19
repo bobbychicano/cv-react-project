@@ -45,7 +45,7 @@ class App extends Component {
     this.setState({
       showResume: true,
       introduction: { fullName: "", emailAddress: "", phoneNumber: "" },
-      education: { school: "", degree: "", years: "" },
+      education: { school: "Cal", degree: "", years: "" },
       experience: { employer: "" },
     });
   };
@@ -66,9 +66,12 @@ class App extends Component {
           Save
         </button>
         {/* A component that holds all the JSX to display the "saved" data as HTML */}
-        {/* if(this.state.showResume) {
-           <div>This element is rendered when the save button is clicked.</div>;
-        } */}
+        {this.state.showResume && (
+          <div>
+            This element is rendered when the {this.state.education.school}
+            button is clicked.
+          </div>
+        )}
       </div>
     );
   }
