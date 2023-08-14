@@ -24,6 +24,7 @@ class App extends Component {
       },
       experience: {
         employer: "",
+        years: "",
       },
     };
   }
@@ -59,7 +60,7 @@ class App extends Component {
       showResume: false,
       introduction: { fullName: "", emailAddress: "", phoneNumber: "" },
       education: { school: "", degree: "", years: "" },
-      experience: { employer: "" },
+      experience: { employer: "", years: "" },
     });
   };
 
@@ -74,7 +75,10 @@ class App extends Component {
           educationValues={this.state.education}
           onChange={this.handleChange}
         />
-        <Experience />
+        <Experience
+          experienceValues={this.state.experience}
+          onChange={this.handleChange}
+        />
         <button type="button" name="save-button" onClick={this.handleSave}>
           Save
         </button>
@@ -82,9 +86,18 @@ class App extends Component {
           <div>
             <h1>{this.state.introduction.fullName}</h1>
             <p>
-              {this.state.introduction.emailAddress}
-              {this.state.introduction.phoneNumber}
+              Email address: {this.state.introduction.emailAddress} Phone
+              number: {this.state.introduction.phoneNumber}
             </p>
+            <br />
+            <h2>Education</h2>
+            <p>School: {this.state.education.school}</p>
+            <p>Degree: {this.state.education.degree}</p>
+            <p>Years: {this.state.education.years}</p>
+            <br />
+            <h2>Experience</h2>
+            <p>Employer: {this.state.experience.employer}</p>
+            <p>Years: {this.state.experience.years}</p>
           </div>
         )}
 
