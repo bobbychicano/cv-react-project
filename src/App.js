@@ -8,6 +8,8 @@ class App extends Component {
   constructor() {
     super();
 
+    // Might I need to add keys here?
+    // After completing maybe try flattening state and ensuring functionality in that way
     this.state = {
       showResume: false,
       introduction: {
@@ -39,13 +41,24 @@ class App extends Component {
     }));
   };
 
+  // Clicking the button will just "show" the info inputted.
   handleSave = (e) => {
     e.preventDefault();
-    // this will render the data that has been inputted on screen into a clean UI and clear out the input fields
-    this.setState({
+
+    this.setState((prevData) => ({
+      ...prevData,
       showResume: true,
+    }));
+  };
+
+  // Clicking this button clears out input fields and state to start a new resume
+  newResume = (e) => {
+    e.preventDefault();
+
+    this.setState({
+      showResume: false,
       introduction: { fullName: "", emailAddress: "", phoneNumber: "" },
-      education: { school: "Cal", degree: "", years: "" },
+      education: { school: "", degree: "", years: "" },
       experience: { employer: "" },
     });
   };
@@ -65,13 +78,14 @@ class App extends Component {
         <button type="button" name="save-button" onClick={this.handleSave}>
           Save
         </button>
-        {/* A component that holds all the JSX to display the "saved" data as HTML */}
         {this.state.showResume && (
           <div>
             This element is rendered when the {this.state.education.school}
             button is clicked.
           </div>
         )}
+
+        {/* Maybe try to pull out the built out resume as a child component here */}
       </div>
     );
   }
