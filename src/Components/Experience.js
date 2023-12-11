@@ -2,12 +2,14 @@ import React, { Component } from "react";
 
 class Experience extends Component {
   render() {
+    const { employer, years } = this.props.experienceValues;
+
     return (
       <div>
         <label for="employer">Employer: </label>
         <input
           type="text"
-          value={this.props.experienceValues.employer}
+          value={employer}
           id="experience"
           name="employer"
           onChange={this.props.onChange}
@@ -15,7 +17,7 @@ class Experience extends Component {
         <label for="years">Years: </label>
         <input
           type="text"
-          value={this.props.experienceValues.years}
+          value={years}
           id="experience"
           name="years"
           onChange={this.props.onChange}

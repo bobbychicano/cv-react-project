@@ -2,12 +2,14 @@ import React, { Component } from "react";
 
 class Introduction extends Component {
   render() {
+    const { fullName, emailAddress, phoneNumber } = this.props.introValues;
+
     return (
       <div>
         <label for="fullName">Name: </label>
         <input
           type="text"
-          value={this.props.introValues.fullName}
+          value={fullName}
           id="introduction"
           name="fullName"
           onChange={this.props.onChange}
@@ -15,7 +17,7 @@ class Introduction extends Component {
         <label for="emailAddress">Email Address: </label>
         <input
           type="email"
-          value={this.props.introValues.emailAddress}
+          value={emailAddress}
           id="introduction"
           name="emailAddress"
           onChange={this.props.onChange}
@@ -25,7 +27,7 @@ class Introduction extends Component {
           type="tel"
           pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
           maxlength="10"
-          value={this.props.introValues.phoneNumber}
+          value={phoneNumber}
           id="introduction"
           name="phoneNumber"
           onChange={this.props.onChange}

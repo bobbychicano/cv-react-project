@@ -8,7 +8,6 @@ class App extends Component {
   constructor() {
     super();
 
-    // Might I need to add keys here?
     // After completing maybe try flattening state and ensuring functionality in that way
     this.state = {
       showResume: false,
@@ -53,6 +52,7 @@ class App extends Component {
   };
 
   // Clicking this button clears out input fields and state to start a new resume
+  //Could the clearing out be done with recursion if the object was nested even deeper?
   newResume = (e) => {
     e.preventDefault();
 
@@ -65,39 +65,46 @@ class App extends Component {
   };
 
   render() {
+    const { showResume, introduction, education, experience } = this.state;
+
     return (
       <div>
-        <Introduction
-          introValues={this.state.introduction}
-          onChange={this.handleChange}
-        />
-        <Education
-          educationValues={this.state.education}
-          onChange={this.handleChange}
-        />
-        <Experience
-          experienceValues={this.state.experience}
-          onChange={this.handleChange}
-        />
-        <button type="button" name="save-button" onClick={this.handleSave}>
-          Save
-        </button>
-        {this.state.showResume && (
+        {!showResume && (
           <div>
-            <h1>{this.state.introduction.fullName}</h1>
+            <Introduction
+              introValues={introduction}
+              onChange={this.handleChange}
+            />
+            <Education
+              educationValues={education}
+              onChange={this.handleChange}
+            />
+            <Experience
+              experienceValues={experience}
+              onChange={this.handleChange}
+            />
+            <button type="button" name="save-button" onClick={this.handleSave}>
+              Save
+            </button>
+          </div>
+        )}
+
+        {showResume && (
+          <div>
+            <h1>{introduction.fullName}</h1>
             <p>
-              Email address: {this.state.introduction.emailAddress} Phone
-              number: {this.state.introduction.phoneNumber}
+              Email address: {introduction.emailAddress} Phone number:{" "}
+              {introduction.phoneNumber}
             </p>
             <br />
             <h2>Education</h2>
-            <p>School: {this.state.education.school}</p>
-            <p>Degree: {this.state.education.degree}</p>
-            <p>Years: {this.state.education.years}</p>
+            <p>School: {education.school}</p>
+            <p>Degree: {education.degree}</p>
+            <p>Years: {education.years}</p>
             <br />
             <h2>Experience</h2>
-            <p>Employer: {this.state.experience.employer}</p>
-            <p>Years: {this.state.experience.years}</p>
+            <p>Employer: {experience.employer}</p>
+            <p>Years: {experience.years}</p>
           </div>
         )}
 
