@@ -25,6 +25,8 @@ class App extends Component {
         employer: "",
         years: "",
       },
+      editMode: false,
+      editSelection: "",
     };
   }
 
@@ -107,8 +109,6 @@ class App extends Component {
             <p>Years: {experience.years}</p>
           </div>
         )}
-
-        {/* Maybe try to pull out the built out resume as a child component here */}
       </div>
     );
   }
